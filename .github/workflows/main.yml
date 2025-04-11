@@ -12,5 +12,5 @@ jobs:
         name: 'Download image'
 
 
-      - run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses"
+      - run: "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses"
         name: "Accept licenses"
