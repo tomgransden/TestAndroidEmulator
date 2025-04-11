@@ -5,8 +5,12 @@ on:
   workflow_dispatch:
   
 jobs:
-  update:
+  emulator_setup:
     runs-on: macOS-15
     steps:
-      - run: '$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list'
-        name: 'List emulators'
+      - run: "yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-29;default;arm64-v8a'"
+        name: 'Download image'
+
+
+      - run: "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses"
+        name: "Accept licenses"
