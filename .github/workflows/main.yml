@@ -8,14 +8,14 @@ jobs:
   emulator_setup:
     runs-on: macos-13
     steps:
-      - run: "echo yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-29;default;arm64-v8a'"
+      - run: "echo yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-29;default;x86_64'"
         name: 'Download image'
 
 
       - run: "echo yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses"
         name: "Accept licenses"
 
-      - run: 'echo "no" |  $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test -k "system-images;android-29;default;arm64-v8a" --device pixel --force'
+      - run: 'echo "no" |  $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test -k "system-images;android-29;default;x86_64" --device pixel --force'
         name: 'Create that AVD'
 
       - run: '$ANDROID_HOME/emulator/emulator -avd test -no-snapshot'
