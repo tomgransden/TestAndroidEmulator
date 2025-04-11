@@ -20,3 +20,6 @@ jobs:
 
       - run: "nohup $ANDROID_HOME/emulator/emulator -avd test -no-snapshot -no-window -no-audio -no-boot-anim -camera-back none -camera-front none -qemu -m 2048 &"
         name: 'Launch it'
+
+      - run: "$ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'"
+        name: 'wait for launch'
