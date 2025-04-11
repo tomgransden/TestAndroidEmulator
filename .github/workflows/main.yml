@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  update:
+    runs-on: macOS-15
+    steps:
+      - run: '$ANDROID_HOME/tools/bin/sdkmanager --list'
+        name: 'List emulators'
