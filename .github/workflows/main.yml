@@ -14,3 +14,6 @@ jobs:
 
       - run: "echo yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses"
         name: "Accept licenses"
+
+      - run: 'echo "no" |  $ANDROID_HOME/cmdline-tools/latest/bin/avdmanager create avd -n test -k "system-images;android-29;default;x86_64" --device pixel --force'
+        name: 'Create that AVD'
