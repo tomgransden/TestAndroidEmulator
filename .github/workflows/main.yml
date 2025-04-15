@@ -6,7 +6,7 @@ on:
   
 jobs:
   emulator_setup:
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
       - run: "echo yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install 'system-images;android-29;default;x86_64'"
         name: 'Download image'
